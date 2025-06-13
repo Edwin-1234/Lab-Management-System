@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style8.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Personal Details</h1>
+    </header>
+    <main>
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="40" r="30" fill="#7c3aed" />
+                        <circle cx="50" cy="100" r="40" fill="#7c3aed" />
+                    </svg>
+                </div>
+                <h2>{{ student.Name }}</h2>
+                <p class="student-meta">SID: {{ student.SID }}</p>
+            </div>
+            
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="detail-label">Roll Number</span>
+                    <span class="detail-value">{{ student.RollNo }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Semester</span>
+                    <span class="detail-value">{{ student.Semester }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Department</span>
+                    <span class="detail-value">{{ student.Department }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Date of Birth</span>
+                    <span class="detail-value">{{ student.DOB }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <button class="back-btn" onclick="window.location.href='{{ url_for('dashboard') }}'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Back to Home
+        </button>
+    </main>
+</body>
+</html>

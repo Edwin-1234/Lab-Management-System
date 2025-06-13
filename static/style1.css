@@ -1,0 +1,100 @@
+/* Import a modern, clean font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    background-color: linear-gradient(rgb(95 69 168 / 0%), rgb(95 69 168/ 70%));
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    color: #8864f0;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    width: 600px;
+}
+
+h1 {
+    font-size: 2.8em; /* Larger font size for the main heading */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #e0e0e0; /* Slightly lighter shade for heading */
+    font-weight: 700; /* Bold */
+}
+
+h2 {
+    font-size: 1.5em; /* Smaller font for the subheading */
+    margin-bottom: 30px; /* More space below the subheading */
+    color: #b0b0b0; /* Lighter gray for subheading */
+    font-weight: 400; /* Regular weight */
+}
+
+.lgnbtn {
+    background-color: #8864f0; /* Vibrant blue background for the button */
+    color: white; /* White text on button */
+    padding: 15px 30px; /* Generous padding */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded button corners */
+    font-size: 1.2em; /* Readable font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-weight: 600; /* Semi-bold */
+    outline: none; /* Remove outline on focus */
+}
+
+.lgnbtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.lgnbtn:active {
+    background-color: #004085; /* Even darker blue on click */
+    transform: translateY(0); /* Return to original position on click */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Adjust heading size for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.2em; /* Adjust subheading size */
+    }
+
+    .container {
+        padding: 30px; /* Reduce padding on smaller screens */
+    }
+
+    .lgnbtn {
+        padding: 12px 25px; /* Adjust button padding */
+        font-size: 1.1em; /* Adjust button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .lgnbtn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}

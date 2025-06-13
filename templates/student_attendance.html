@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style9.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Attendance</h1>
+        <a href="{{ url_for('dashboard') }}" class="back-btn">← Back to Dashboard</a>
+    </header>
+    <main>
+        <div class="attendance-stats">
+            <h2>Attendance Summary</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-value">{{ stats.present_count }}/{{ stats.total_classes }}</span>
+                    <span class="stat-label">Classes Attended</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value">{{ ((stats.present_count / stats.total_classes) * 100)|round(1) if stats.total_classes > 0 else 0 }}%</span>
+                    <span class="stat-label">Attendance Percentage</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recent-attendance">
+            <h2>Recent Attendance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Lab</th>
+                        <th>Status</th>
+                        <th>Recorded By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in recent_attendance %}
+                    <tr>
+                        <td>{{ record.attendance_date.strftime('%d-%m-%Y') }}</td>
+                        <td>{{ record.Lab_Name }}</td>
+                        <td class="{{ 'present' if record.status == 'Present' else 'absent' }}">
+                            {{ record.status }}
+                        </td>
+                        <td>{{ record.staff_name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

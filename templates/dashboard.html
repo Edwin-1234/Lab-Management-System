@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ student[2] }}!</h1>
+    </header>
+    <main>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('personal_details') }}'">Personal Details</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('course_details') }}'">Course Details</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('student_attendance') }}'">View Attendance</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('reset_password') }}'">Reset Password</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
+        
+        <!-- Computer Number Modal (hidden by default) -->
+        <div id="computerModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Enter Computer Number</h2>
+                <p>You've been marked present. Please enter the computer number you're using:</p>
+                <form id="computerForm">
+                    <input type="hidden" id="attendanceId">
+                    <input type="text" id="computerNumber" placeholder="Computer Number" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="details"></div>
+    </main>
+
+    <script>
+        // Check for pending computer number submission
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/check_pending_attendance')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.attendance_id) {
+                        const modal = document.getElementById('computerModal');
+                        document.getElementById('attendanceId').value = data.attendance_id;
+                        modal.style.display = 'block';
+                    }
+                });
+            
+            // Close modal
+            document.querySelector('.close').addEventListener('click', function() {
+                document.getElementById('computerModal').style.display = 'none';
+            });
+            
+            // Submit computer number
+            document.getElementById('computerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const attendanceId = document.getElementById('attendanceId').value;
+                const computerNumber = document.getElementById('computerNumber').value;
+                
+                fetch('/submit_computer_number', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        attendance_id: attendanceId,
+                        computer_number: computerNumber
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Computer number submitted successfully!');
+                        document.getElementById('computerModal').style.display = 'none';
+                    } else {
+                        alert('Error: ' + (data.error || 'Failed to submit computer number'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ student[2] }}!</h1>
+    </header>
+    <main>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('personal_details') }}'">Personal Details</button>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('course_details') }}'">Course Details</button>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('reset_password') }}'">Reset Password</button>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('index') }}'">Logout</button>
+        
+        <div id="details"></div>
+    </main>
+
+    <script>
+        function fetchPeclarsonalDetails() {
+            fetch('/personal_details ')
+                .then(response => response.json())
+                .then(data => {
+                    const detailsHTML = `
+                        <h2>Personal Details:</h2>
+                        <p>SID: ${data.SID}</p>
+                        <p>RollNo: ${data.RollNo}</p>
+                        <p>Name: ${data.Name}</p>
+                        <p>Semester: ${data.Semester}</p>
+                        <p>Department: ${data.Department}</p>
+                        <p>DOB: ${data.DOB}</p>
+                    `;
+                    document.getElementById('details').innerHTML = detailsHTML;
+                });
+        }
+    </script>
+</body>
+</html> -->

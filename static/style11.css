@@ -1,0 +1,212 @@
+/* View Attendance Records */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #2d3748;
+}
+
+header {
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateX(-5px);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-form label {
+    font-weight: 600;
+    color: #4f46e5;
+}
+
+.filter-form input[type="date"] {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-form input[type="date"]:focus {
+    border-color: #4f46e5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.filter-form button, .clear-btn {
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-form button:hover, .clear-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.clear-btn {
+    background: linear-gradient(90deg, #64748b 0%, #475569 100%);
+    text-decoration: none;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 1rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.attendance-table th, 
+.attendance-table td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.attendance-table th {
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    position: sticky;
+    top: 0;
+}
+
+.attendance-table tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.attendance-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+.present {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.absent {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .attendance-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .attendance-table th, 
+    .attendance-table td {
+        padding: 0.8rem;
+    }
+}
+
+/* Animation for table rows */
+@keyframes fadeInRow {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.attendance-table tr {
+    animation: fadeInRow 0.5s ease forwards;
+}
+
+/* Stagger the row animations */
+.attendance-table tr:nth-child(1) { animation-delay: 0.1s; }
+.attendance-table tr:nth-child(2) { animation-delay: 0.2s; }
+.attendance-table tr:nth-child(3) { animation-delay: 0.3s; }
+.attendance-table tr:nth-child(4) { animation-delay: 0.4s; }
+.attendance-table tr:nth-child(5) { animation-delay: 0.5s; }
+.attendance-table tr:nth-child(6) { animation-delay: 0.6s; }
+.attendance-table tr:nth-child(7) { animation-delay: 0.7s; }
+.attendance-table tr:nth-child(8) { animation-delay: 0.8s; }

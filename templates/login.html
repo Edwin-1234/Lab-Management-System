@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="hero">
+            <div class="hero-inner">
+                <h2>Welcome to the Lab Management System</h2>
+            </div>
+        </div>
+        <form id="loginForm" method="POST" action="/login">
+            <h2>Login to your account</h2>
+            <input type="text" placeholder="Username" id="emailInput" name="email" required />
+            <input type="password" placeholder="Password" name="password" required /> 
+            <button type="submit" id="loginButton">Login</button>
+
+            <div class="forgot-link">
+                <a href="{{ url_for('static', filename='reset_password') }}">Forgot Password</a>
+            </div>
+
+            <div class="register">
+                <a href="#" onclick="showSignInPopup()">Register Now</a>
+            </div>
+
+            <div id="signInPopup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closeSignInPopup()">&times;</span>
+                    <h2>Register</h2>
+                    <div class="signin-buttons">
+                        <button onclick="window.location.href='{{ url_for('staff_signup') }}'">Register as Teacher</button>
+                        <button onclick="window.location.href='{{ url_for('signup') }}'">Register as Student</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <a href="/lms6/static/style.css"></a>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="studentlogin">
+    <header>
+        <h1>Student Login</h1>
+    </header>
+    <main>
+        <form method="POST">
+            <input type="text" name="sid" placeholder="Student ID (SID)" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <label>
+                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+            </label>
+            <div class="lobtn">
+                <button class="loginbtn" type="submit">Login</button>
+            </div>
+            <script>
+                function togglePasswordVisibility() {
+                    const passwordField = document.getElementById('password');
+                    const type = passwordField.type === 'password' ? 'text' : 'password';
+                    passwordField.type = type;
+                    confirmPasswordField.type = type;
+                }
+            </script>
+        </form>
+        <p><a href="/">Back to Home</a></p>
+    </main>
+</body -->

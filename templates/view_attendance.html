@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style11.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Attendance Records</h1>
+        <a href="{{ url_for('staff_dashboard') }}" class="back-btn">← Back to Dashboard</a>
+    </header>
+    <main>
+        <form method="GET" class="filter-form">
+            <label for="date">Filter by Date:</label>
+            <input type="date" name="date" id="date" value="{{ request.args.get('date', '') }}">
+            <button type="submit">Filter</button>
+            <a href="{{ url_for('view_attendance') }}" class="clear-btn">Clear</a>
+        </form>
+        
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Student</th>
+                    <th>Semester</th>
+                    <th>Department</th>
+                    <th>Lab</th>
+                    <th>Status</th>
+                    <th>Computer No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance_records %}
+                <tr>
+                    <td>{{ record.attendance_date.strftime('%d-%m-%Y') }}</td>
+                    <td>{{ record.student_name }} ({{ record.student_id }})</td>
+                    <td>{{ record.Semester }}</td>
+                    <td>{{ record.Department }}</td>
+                    <td>{{ record.Lab_Name }}</td>
+                    <td class="{{ 'present' if record.status == 'Present' else 'absent' }}">
+                        {{ record.status }}
+                    </td>
+                    <td>{{ record.computer_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ staff_name }}!</h1>
+    </header>
+    <main>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('student_details') }}'">View Student Details</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('component_details') }}'">View Component Details</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('take_attendance') }}'">Take Attendance</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('view_attendance') }}'">View Attendance Records</button>
+        <button class="logbtn" onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
+        
+        <div id="details"></div>
+    </main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ staff_name }}!</h1>
+    </header>
+    <main>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('student_details') }}'">View Student Details</button>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('component_details') }}'">View Component Details</button>
+        <button class="logbtn"onclick="window.location.href='{{ url_for('index') }}'">Logout</button>
+        
+        <div id="details"></div>
+    </main>
+</body>
+</html> -->

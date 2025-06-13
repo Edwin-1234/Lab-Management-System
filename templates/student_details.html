@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style7.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Student Details</h1>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>SID</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Semester</th>
+                <th>Department</th>
+                <th>DOB</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+                <td>{{ student[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button class="logibtn"onclick="window.location.href='{{ url_for('staff_dashboard') }}'">Back</button>
+    </main>
+    
+</body>
+</html>

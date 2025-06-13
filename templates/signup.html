@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirm_password');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            confirmPasswordField.type = type;
+        }
+
+        function validateForm() {
+            const dob = new Date(document.getElementById('dob').value);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            if (age < 17) {
+                alert("You must be at least 17 years old.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body class="studentsignup">
+    <header>
+        <h1>Student Signup</h1>
+    </header>
+    <main>
+        <form method="POST" onsubmit="return validateForm();">
+            <input type="text" name="sid" placeholder="Student ID (SID)" required>
+            <input type="number" name="roll_no" placeholder="Roll Number" min="0" max="200" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <select name="semester" required>
+                <option value="" disabled selected>Select Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <select name="department" required>
+                <option value="" disabled selected>Choose Department</option>
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="ECE">Electronics and Communication Engineering</option>
+                <option value="EEE">Electrical and Electronics Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CE">Civil Engineering</option>
+                <option value="RAI">Robotics and Artifical Intelligence</option>
+            </select>
+            <input type="date" id="dob" name="dob" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+            <label>
+                <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+            </label>
+            <button class="signupbtn" type="submit">Sign Up</button>
+        </form>
+        <p><a href="/">Back to Home</a></p>
+    </main>
+</body>
+</html>

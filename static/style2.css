@@ -1,0 +1,175 @@
+/* General Styling */
+body.studentsignup {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* Header Styling */
+body.studentsignup header {
+    background: linear-gradient(90deg, #8864f0 0%, #a78bfa 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 12px rgba(136, 100, 240, 0.2);
+}
+
+body.studentsignup header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Main Content Styling */
+body.studentsignup main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Form Styling */
+body.studentsignup form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(136, 100, 240, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.studentsignup form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(136, 100, 240, 0.15);
+}
+
+/* Input Field Styling */
+body.studentsignup input,
+body.studentsignup select {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+body.studentsignup input:focus,
+body.studentsignup select:focus {
+    border-color: #8864f0;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(136, 100, 240, 0.2);
+}
+
+body.studentsignup input[type="date"] {
+    padding: 0.9rem;
+}
+
+/* Show Password Checkbox */
+body.studentsignup label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    color: #555;
+}
+
+body.studentsignup input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    accent-color: #8864f0;
+}
+
+/* Button Styling */
+body.studentsignup .signupbtn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #8864f0 0%, #a78bfa 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(136, 100, 240, 0.3);
+}
+
+body.studentsignup .signupbtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(136, 100, 240, 0.4);
+}
+
+body.studentsignup .signupbtn:active {
+    transform: translateY(0);
+}
+
+/* Link Styling */
+body.studentsignup p a {
+    color: #8864f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+body.studentsignup p a:hover {
+    color: #7a56e0;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body.studentsignup header h1 {
+        font-size: 2rem;
+    }
+    
+    body.studentsignup main {
+        padding: 0 1.5rem;
+    }
+    
+    body.studentsignup form {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation for form elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.studentsignup input,
+body.studentsignup select,
+body.studentsignup label,
+body.studentsignup .signupbtn {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger the animations */
+body.studentsignup input:nth-child(1) { animation-delay: 0.1s; }
+body.studentsignup input:nth-child(2) { animation-delay: 0.2s; }
+body.studentsignup input:nth-child(3) { animation-delay: 0.3s; }
+body.studentsignup select:nth-child(4) { animation-delay: 0.4s; }
+body.studentsignup select:nth-child(5) { animation-delay: 0.5s; }
+body.studentsignup input:nth-child(6) { animation-delay: 0.6s; }
+body.studentsignup input:nth-child(7) { animation-delay: 0.7s; }
+body.studentsignup input:nth-child(8) { animation-delay: 0.8s; }
+body.studentsignup label { animation-delay: 0.9s; }
+body.studentsignup .signupbtn { animation-delay: 1s; }
