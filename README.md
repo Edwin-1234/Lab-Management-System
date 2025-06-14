@@ -9,7 +9,7 @@ This system simplifies and streamlines lab administration for both staff and stu
 
 - Akhil S Nair  
 - Alwin Philip 
-- Edwin Varkey  
+- [Edwin Varkey](https://github.com/Edwin-1234)  
 - Jessin Sunny
 
 ---
