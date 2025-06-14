@@ -8,7 +8,7 @@ This system simplifies and streamlines lab administration for both staff and stu
 ## 👥 Team 
 
 - Akhil S Nair  
-- Alwin Philip 
+- [Alwin Philip](https://github.com/Alwin-06) 
 - [Edwin Varkey](https://github.com/Edwin-1234)  
 - [Jessin Sunny](https://github.com/Jessin-Sunny)
 
