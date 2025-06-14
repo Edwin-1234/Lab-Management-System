@@ -6,6 +6,7 @@ This system simplifies and streamlines lab administration for both staff and stu
 ---
 
 ## 👥 Team 
+<span style="text-decoration: none;"><a href="https://github.com/edwin-varkey" style="text-decoration: none; color: inherit;">Edwin Varkey</a></span>
 
 - [Akhil S Nair](https://github.com/akhil-s-2004)
 - [Alwin Philip](https://github.com/Alwin-06) 
